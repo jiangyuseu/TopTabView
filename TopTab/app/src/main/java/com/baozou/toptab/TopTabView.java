@@ -39,12 +39,12 @@ public class TopTabView extends ViewGroup {
         topContainer.setOrientation(LinearLayout.HORIZONTAL);
 //        topContainer.setBackgroundColor(getResources().getColor(R.color.colorAccent));
         addView(topContainer);
-
-        indexView = new LinearLayout(context);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 4);
-        indexView.setLayoutParams(params);
-        indexView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        addView(indexView);
+//
+//        indexView = new LinearLayout(context);
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 4);
+//        indexView.setLayoutParams(params);
+//        indexView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+//        addView(indexView);
     }
 
     @Override
@@ -111,6 +111,8 @@ public class TopTabView extends ViewGroup {
                 }
             });
         }
+        indexView = mAdapter.getIndexView();
+        addView(indexView);
         if (mViewPager != null) {
             mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
@@ -148,6 +150,8 @@ public class TopTabView extends ViewGroup {
         int getCount();
 
         void onClick(int position);
+
+        View getIndexView();
 
     }
 }

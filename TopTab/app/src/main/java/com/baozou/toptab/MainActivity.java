@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new TopTabView.TopViewAdapter() {
             @Override
             public View getView(int position) {
-                View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.top_child_view, null);
+                View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.top_child_view, topTabView, false);
                 TextView textView = (TextView) view.findViewById(R.id.tab1);
                 if (position == 0) {
                     textView.setText("tab1");
@@ -66,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(position);
             }
 
+            @Override
+            public View getIndexView() {
+                View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.top_child_view_index,topTabView,false);
+//                View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.top_child_view_index, null);
+                return view;
+            }
         };
         topTabView.setViewPager(viewPager);
         topTabView.setAdapter(adapter);
